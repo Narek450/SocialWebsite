@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'django_extensions',
+    'images.apps.ImagesConfig',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -148,15 +150,15 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '826922012258341' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '133c7a90d1f567de9343dace714baf59' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_TWITTER_KEY = '' # Twitter API Key
-SOCIAL_AUTH_TWITTER_SECRET = '' # Twitter API Secret
+SOCIAL_AUTH_TWITTER_KEY = '6YQeF4q0AbJadyasESPMXjF6w' # Twitter API Key
+SOCIAL_AUTH_TWITTER_SECRET = 'rD65MnTEBHSdYgz1xYr17QmPSvmIpqjrIVFfi7oB5GLSuDXk8H' # Twitter API Secret
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '' # Google Client ID
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' # Google Client Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '618905233913-k0cer8mr63dp9m1oqkoootvavc81gnq8.apps.googleusercontent.com' # Google Client ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Client Secret
 
 SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.social_details',
@@ -170,3 +172,8 @@ SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
 ]
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type('application/javascript', '.js', True)
+    mimetypes.add_type('text/css', '.css', True)
